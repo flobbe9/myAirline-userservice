@@ -17,4 +17,8 @@ import com.example.myAirlineUserService.models.ConfirmationToken;
 public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationToken, Long> {
     
     Optional<ConfirmationToken> findByUserEmail(String email);
+
+    Optional<ConfirmationToken> findByToken(String token);
+
+    Boolean existsByToken(String token);
 }
