@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+    db:
+        image: postgres
+        container_name: myairline-db
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: myAirline
+
+    user-service:
+        image: flobbe10/myairline-userservice:0.0.1
+        build: .
+        container_name: myairline-userservice
+        ports: 
+            - 4002:4002
+        depends_on:
+            - db
+        environment:
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/myAirline
+            - SPRING_DATASOURCE_USERNAME=postgres
+            - SPRING_DATASOURCE_PASSWORD=postgres
+            - SPRING_JPA_HIBERNATE_DDL_AUTO=create
