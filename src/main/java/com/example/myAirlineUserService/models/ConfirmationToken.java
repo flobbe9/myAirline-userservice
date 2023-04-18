@@ -62,4 +62,17 @@ public class ConfirmationToken {
         this.expiresAt = expiresAt;
         this.confirmedAt = confirmedAt;
     }
+
+
+    /**
+     * Checks if the expiring time has been reached yet.
+     * 
+     * @return true if expiresAt is in the past or now
+     */
+    public boolean isExpired() {
+
+        LocalDateTime now = LocalDateTime.now();
+
+        return now.isAfter(this.expiresAt) || now.equals(this.expiresAt);
+    }
 }
