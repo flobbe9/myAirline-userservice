@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>myAirline | Confirm your account</title>
+        <style>
+            body {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin: 0;
+                text-decoration: none;
+            }
+
+            #confirmButton {
+                background-color: white;
+                border: 2px solid rgb(70, 132, 212);
+                border-radius: 5px;
+                font-size: 25px;
+                padding: 8px 15px;
+                text-align: left;
+                top: 1000px;
+                transition: border-color 0.2s;
+            }
+
+            #confirmButton:hover {
+                border-color: bisque;
+                cursor: pointer;
+            }
+
+            .navBar {
+                background-color: white;
+                border-bottom: 2px solid bisque;
+                padding: 15px 20px; 
+                position: sticky;
+                top: 0;
+                text-align: left;
+            }
+
+            .content {
+                margin-left: 20px;
+            }
+
+            #logo {
+                color: black;
+                font-size: 25px;
+                margin-right: 80px;
+                padding: 0px;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            #logo:hover {
+                color: bisque;
+            }
+
+            .footer {
+                background-color: bisque;
+                font-size: 20px;
+                padding: 10px 0px;
+            }
+
+            .footer-item {
+                color: black;
+                display: inline;
+                margin: 2px 20px;
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            .footer-item:hover {
+                color: gray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- NavBar -->
+        <div class="navBar">
+            <div id="logo">myAirline</div>
+        </div>
+
+        <div class="content">
+            <h2>Confirm your account!</h2>
+
+            <!-- Message -->
+            <p id="p1">
+                Hi %s, <br><br>
+                    
+                thanks for signing up for myAirline! <br><br>
+
+                Please confirm your account: <br><br>
+
+                <form action="http://localhost:4002/user/confirmEmail">
+
+                    <input type="text" style="display:none" value="%s" name="token">
+
+                    <input id="confirmButton" type="submit" value="Confirm" />
+                </form>
+            </p>
+        </div>
+    </body>
+
+    <footer class="footer">
+        <div style="text-align: center;">&copy;myAirline</div>
+    </footer>
+</html>
