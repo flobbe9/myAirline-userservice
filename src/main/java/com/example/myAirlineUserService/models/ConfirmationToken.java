@@ -18,7 +18,7 @@ import lombok.Setter;
 /**
  * Class defining a token to confirm an {@link AppUser}s email.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Entity
 @Getter

@@ -26,7 +26,7 @@ import lombok.Setter;
 /**
  * Class defining the User entity.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Entity
 @Getter

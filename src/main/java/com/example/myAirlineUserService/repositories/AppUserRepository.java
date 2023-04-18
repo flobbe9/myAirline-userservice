@@ -11,7 +11,7 @@ import com.example.myAirlineUserService.models.AppUser;
 /**
  * Repository interface for {@link AppUser}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Repository
 public interface AppUserRepository extends JpaRepository<AppUser, Long> {

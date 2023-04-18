@@ -7,7 +7,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 /**
  * Enum representing the role a user can have granting them certain permissions.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 public enum AppUserRole {
     USER,

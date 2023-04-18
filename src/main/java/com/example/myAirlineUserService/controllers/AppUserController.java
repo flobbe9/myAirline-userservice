@@ -27,7 +27,7 @@ import jakarta.validation.constraints.NotBlank;
 /**
  * Class handling all endpoints related to {@link AppUser}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @RestController
 @RequestMapping("/user")

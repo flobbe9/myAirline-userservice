@@ -11,7 +11,7 @@ import jakarta.validation.Payload;
 /**
  * Annotation to validate an {@link AppUser}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Constraint(validatedBy = AppUserValidator.class)
 @Target(ElementType.TYPE)

@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 /**
  * Configuration class to authentiacate requests.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Configuration
 @EnableWebSecurity

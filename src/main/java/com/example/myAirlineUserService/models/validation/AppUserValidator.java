@@ -11,7 +11,7 @@ import jakarta.validation.ConstraintValidatorContext;
 /**
  * Class with validation logic for {@link AppUser}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Validated
 public class AppUserValidator implements ConstraintValidator<ValidAppUser, AppUser> {

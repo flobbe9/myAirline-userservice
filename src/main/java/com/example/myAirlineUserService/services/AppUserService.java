@@ -28,7 +28,7 @@ import jakarta.validation.constraints.NotBlank;
 /**
  * Class with logic related to {@link AppUser}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Service
 @Validated

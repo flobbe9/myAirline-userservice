@@ -15,7 +15,7 @@ import jakarta.validation.constraints.NotBlank;
 /**
  * Class handling logic related to {@link ConfirmationToken}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Service
 public class ConfirmationTokenService {

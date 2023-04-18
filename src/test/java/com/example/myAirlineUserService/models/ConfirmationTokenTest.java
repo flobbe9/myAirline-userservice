@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for {@link ConfirmationToken}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 public class ConfirmationTokenTest {
 

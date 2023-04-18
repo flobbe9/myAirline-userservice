@@ -11,7 +11,7 @@ import com.example.myAirlineUserService.models.ConfirmationToken;
 /**
  * Repository interface for {@link ConfirmationToken}.
  * 
- * @since 0.0.2
+ * @since 0.0.1
  */
 @Repository
 public interface ConfirmationTokenRepository extends JpaRepository<ConfirmationToken, Long> {
