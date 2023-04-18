@@ -53,18 +53,19 @@ public class AppUserController {
 
 
     @PostMapping("/register")
+    @ResponseStatus(code = HttpStatus.OK, reason = "User has been registered.")
     @Operation(summary = "Save and validate new user.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Registered user.", content = {@Content(mediaType = "application/json")}),
         // @ApiResponse(responseCode = "400", description = "Invalid email.", content = {@Content(mediaType = "application/json")}),
         @ApiResponse(responseCode = "500", description = "User does already exist.", content = {@Content(mediaType = "application/json")}),
     })
-    public AppUser register(@RequestBody @Valid AppUser appUser) {
+    public void register(@RequestBody @Valid AppUser appUser) {
 
         if (appUser.getRole() == null)
             appUser.setRole(AppUserRole.USER);
 
-        return appUserService.register(appUser);
+        appUserService.register(appUser);
     }
 
 
