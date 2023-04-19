@@ -10,6 +10,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,7 +47,7 @@ public class AppUserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public static final String CONFIRMATION_EMAIL_PATH = "./resources/ConfirmationEmail.html";
+    public static final String CONFIRMATION_EMAIL_PATH = "ConfirmationEmail.html";
 
     
     /**
@@ -146,13 +147,13 @@ public class AppUserService implements UserDetailsService {
 
     private String htmlToString(@NotBlank String filePath) {
 
-        try (InputStream fos = getClass().getResourceAsStream(filePath);
+        try (InputStream fos = new ClassPathResource(filePath).getInputStream();
              Reader ir = new InputStreamReader(fos);
              BufferedReader br = new BufferedReader(ir)) {
                 
             return br.lines().collect(Collectors.joining());
 
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             throw new IllegalStateException("Failed to read html file at path: " + filePath + ".");
         }
     }
