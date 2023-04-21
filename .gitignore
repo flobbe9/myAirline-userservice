@@ -3,7 +3,7 @@ HELP.md
 ### Gradle ###
 .gradle
 gradlew
-gradle.bat
+gradlew.bat
 gradle
 build/
 !**/src/main/**/build/
