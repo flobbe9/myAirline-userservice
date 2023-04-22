@@ -136,10 +136,11 @@ public class AppUserService implements UserDetailsService {
         String content = htmlToString(CONFIRMATION_EMAIL_PATH)
                          .formatted(appUser.getFirstName(), token.getToken());
 
-        // emailService.sendEmail(appUser.getEmail(), 
-        //                        content,
-        //                        "myAirline | Confirm your account", 
-        //                        null);
+        // WARNING: dont't send too often, google might think it's spam
+        emailService.sendEmail(appUser.getEmail(), 
+                               content,
+                               "myAirline | Confirm your account", 
+                               null);
 
         return token.getToken();
     }

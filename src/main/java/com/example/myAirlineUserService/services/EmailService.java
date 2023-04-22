@@ -50,7 +50,7 @@ public class EmailService {
             javaMailSender.send(mailMessage);
 
         } catch(MessagingException e) {
-            throw new IllegalStateException(e.getMessage());
+            throw new IllegalStateException(e.getClass() + ": Failed to send email.");
         }
     }
 }
