@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 import com.example.myAirlineUserService.models.ConfirmationToken;
 import com.example.myAirlineUserService.repositories.ConfirmationTokenRepository;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 /**
@@ -18,6 +20,7 @@ import jakarta.validation.constraints.NotBlank;
  * @since 0.0.1
  */
 @Service
+@Validated
 public class ConfirmationTokenService {
     
     @Autowired
@@ -33,12 +36,12 @@ public class ConfirmationTokenService {
 
     public ConfirmationToken getByUserEmail(@NotBlank String userEmail) {
 
-        return confirmationTokenRepository.findByToken(userEmail).orElseThrow(() -> 
+        return confirmationTokenRepository.findByUserEmail(userEmail).orElseThrow(() -> 
             new IllegalStateException("Could not find confirmation token with user email: " + userEmail + "."));
     }
 
 
-    public ConfirmationToken save(@Valid ConfirmationToken token) {
+    public ConfirmationToken save(@NotNull @Valid ConfirmationToken token) {
 
         return confirmationTokenRepository.save(token);
     }
@@ -50,7 +53,7 @@ public class ConfirmationTokenService {
     }
 
 
-    public boolean canTokenBeConfirmed(@NotBlank ConfirmationToken token) {
+    private boolean canTokenBeConfirmed(@NotBlank ConfirmationToken token) {
 
         // should exist
         if (!exists(token.getToken()))

@@ -7,8 +7,6 @@ import org.hibernate.annotations.Parameter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.myAirlineUserService.models.validation.ValidAppUser;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -33,7 +31,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ValidAppUser(groups = {ValidAppUser.class})
 public class AppUser implements UserDetails {
     
     @Id
@@ -45,24 +42,24 @@ public class AppUser implements UserDetails {
     @GeneratedValue(generator = "user_id_generator")    
     private Long id;
 
-    @NotBlank(message = "First name cannot be blank.", groups = {ValidAppUser.class})
+    @NotBlank(message = "First name cannot be blank.")
     private String firstName;
 
-    @NotBlank(message = "Surname cannot be blank.", groups = {ValidAppUser.class})
+    @NotBlank(message = "Surname cannot be blank.")
     private String surName;
 
     // TODO: add email regex
-    @NotBlank(message = "Email cannot be blank.", groups = {ValidAppUser.class})
+    @NotBlank(message = "Email cannot be blank.")
     @EqualsAndHashCode.Include
     @Column(unique = true)
     private String email;
 
     // TODO: add password regex
-    @NotBlank(message = "Password cannot be blank.", groups = {ValidAppUser.class})
+    @NotBlank(message = "Password cannot be blank.")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @NotNull(message = "User role cannot be null", groups = {ValidAppUser.class})
+    @NotNull(message = "User role cannot be null")
     private AppUserRole role;
 
     private boolean isAccountNonExpired = true;
@@ -74,10 +71,10 @@ public class AppUser implements UserDetails {
     private boolean isEnabled = false;
 
 
-    public AppUser(@NotBlank(message = "First name cannot be blank.", groups = ValidAppUser.class) String firstName,
-                    @NotBlank(message = "Surname cannot be blank.", groups = ValidAppUser.class) String surName,
-                    @NotBlank(message = "Email cannot be blank.", groups = ValidAppUser.class) String email,
-                    @NotBlank(message = "Password cannot be blank.", groups = ValidAppUser.class) String password,
+    public AppUser(@NotBlank(message = "First name cannot be blank.") String firstName,
+                    @NotBlank(message = "Surname cannot be blank.") String surName,
+                    @NotBlank(message = "Email cannot be blank.") String email,
+                    @NotBlank(message = "Password cannot be blank.") String password,
                     AppUserRole role) {
 
         this.firstName = firstName;
